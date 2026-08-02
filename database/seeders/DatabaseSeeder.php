@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             Setting::updateOrCreate(['clave' => $key], ['valor' => $value]);
         }
 
-        User::updateOrCreate(
+        User::firstOrCreate(
             ['email' => 'admin@tienda.com'],
             ['nombre' => 'Administrador', 'password' => 'admin12345'],
         );

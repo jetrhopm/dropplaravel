@@ -31,4 +31,6 @@ Configura las variables `APP_ENV=production`, `APP_DEBUG=false`, base de datos M
 
 Nunca subas `.env`, `storage/logs` ni archivos de credenciales al repositorio.
 
+Los comandos para publicar desde GitHub en Hostinger con los archivos publicos dentro de `public_html` estan en [docs/HOSTINGER_DEPLOY.md](docs/HOSTINGER_DEPLOY.md).
+
 El plan detallado y los criterios de cierre están en [docs/MIGRATION_PLAN.md](docs/MIGRATION_PLAN.md).

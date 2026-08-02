@@ -1,59 +1,29 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Dropshipping Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Migración progresiva del MVP de PHP puro en `jetrhopm/dropp` a Laravel 12. El proyecto original se conserva sin cambios como referencia comparativa.
 
-## About Laravel
+## Estado actual
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Catálogo público, búsqueda y página de producto.
+- Carrito basado en sesión y checkout para pagos manuales.
+- Pedidos, productos, imágenes, configuraciones y usuarios modelados con Eloquent.
+- Esquema compatible con las tablas de la versión PHP: `usuarios`, `configuracion`, `productos`, `producto_imagenes`, `pedidos` y `pedido_items`.
+- Rutas públicas estables y con nombre: `/`, `/producto/{id}`, `/carrito`, `/checkout`, `/pedido-confirmado`.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Pendiente de portar: panel administrativo, importador por URL y las pasarelas Mercado Pago, PayPal, Openpay y Clip.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Desarrollo local
 
-## Learning Laravel
+1. Copia `.env.example` a `.env` y configura MySQL.
+2. Ejecuta `composer install` y `php artisan key:generate`.
+3. Ejecuta `php artisan migrate --seed`.
+4. Ejecuta `php artisan storage:link` para exponer las imágenes de productos.
+5. Inicia con `php artisan serve` y abre la URL indicada.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Hostinger
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+El dominio debe apuntar al directorio `public/`, nunca a la raíz del proyecto. En un hosting compartido se puede dejar el código fuera de `public_html` y copiar solo el contenido de `public/` a `public_html`, ajustando las rutas de `public/index.php`; si el plan permite cambiar el document root, apunta directamente a `<proyecto>/public`.
 
-## Laravel Sponsors
+Configura las variables `APP_ENV=production`, `APP_DEBUG=false`, base de datos MySQL y `APP_URL=https://tu-dominio`. Después ejecuta `php artisan migrate --force`, `php artisan db:seed --force`, `php artisan storage:link`, `php artisan config:cache` y `php artisan route:cache` mediante SSH. Si no hay SSH, importa la base de datos desde phpMyAdmin y prepara el enlace de `storage` según las opciones del panel.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Nunca subas `.env`, `storage/logs` ni archivos de credenciales al repositorio.

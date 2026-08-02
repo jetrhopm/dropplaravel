@@ -1,0 +1,339 @@
+/* ===== Sistema de diseño de la tienda ===== */
+:root {
+  --brand-1: #7c3aed;
+  --brand-2: #db2777;
+  --grad: linear-gradient(135deg, var(--brand-1), var(--brand-2));
+  --ink: #0f172a;
+  --ink-soft: #475569;
+  --bg: #f8fafc;
+  --card-radius: 1.1rem;
+  --shadow-soft: 0 6px 24px rgba(15, 23, 42, .07);
+  --shadow-hover: 0 14px 34px rgba(124, 58, 237, .18);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* ===== Navbar ===== */
+.navbar-tienda {
+  background: rgba(255, 255, 255, .85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(15, 23, 42, .06);
+}
+.marca {
+  font-weight: 800;
+  font-size: 1.35rem;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -.02em;
+}
+.btn-carrito {
+  border: 2px solid #e2e8f0;
+  border-radius: 999px;
+  padding: .45rem .95rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: #fff;
+  transition: .2s;
+}
+.btn-carrito:hover { border-color: var(--brand-1); color: var(--brand-1); }
+
+/* ===== Botones ===== */
+.btn-brand {
+  background: var(--grad);
+  color: #fff;
+  border: 0;
+  font-weight: 700;
+  border-radius: .8rem;
+  padding: .7rem 1.5rem;
+  transition: .2s;
+  box-shadow: 0 6px 18px rgba(124, 58, 237, .35);
+}
+.btn-brand:hover { color: #fff; transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.btn-suave {
+  background: #fff;
+  border: 2px solid #e2e8f0;
+  border-radius: .8rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.btn-suave:hover { border-color: var(--brand-1); color: var(--brand-1); }
+
+/* ===== Hero ===== */
+.hero {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background:
+    radial-gradient(1100px 420px at 85% -10%, rgba(219, 39, 119, .25), transparent 60%),
+    radial-gradient(900px 420px at 0% 110%, rgba(124, 58, 237, .3), transparent 60%),
+    linear-gradient(160deg, #1e1b4b 0%, #312e81 55%, #4c1d95 100%);
+  color: #fff;
+  padding: 3.5rem 1.5rem;
+}
+.hero h1 { font-weight: 800; letter-spacing: -.03em; }
+.hero .resaltado {
+  background: linear-gradient(135deg, #f0abfc, #fbbf24);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero-buscador .form-control {
+  border: 0;
+  border-radius: 999px 0 0 999px;
+  padding: .9rem 1.4rem;
+  font-size: 1.05rem;
+}
+.hero-buscador .btn {
+  border-radius: 0 999px 999px 0;
+  padding: .9rem 1.6rem;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  background: rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 999px;
+  padding: .35rem .9rem;
+  font-size: .85rem;
+  color: #e9d5ff;
+}
+
+/* ===== Franja de beneficios ===== */
+.beneficio {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  background: #fff;
+  border-radius: var(--card-radius);
+  padding: 1rem 1.2rem;
+  box-shadow: var(--shadow-soft);
+  height: 100%;
+}
+.beneficio i {
+  font-size: 1.5rem;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.beneficio strong { display: block; font-size: .95rem; }
+.beneficio small { color: var(--ink-soft); }
+
+/* ===== Tarjetas de producto ===== */
+.titulo-seccion {
+  font-weight: 800;
+  letter-spacing: -.02em;
+  position: relative;
+  display: inline-block;
+}
+.titulo-seccion::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 48px;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--grad);
+}
+.card-producto {
+  border: 0;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: transform .22s, box-shadow .22s;
+  background: #fff;
+  height: 100%;
+}
+.card-producto:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+.card-producto .marco-img {
+  background: #fff;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: .8rem;
+}
+.card-producto .marco-img img { max-height: 100%; max-width: 100%; object-fit: contain; transition: transform .3s; }
+.card-producto:hover .marco-img img { transform: scale(1.06); }
+.badge-nuevo {
+  position: absolute;
+  top: .8rem;
+  left: .8rem;
+  background: var(--grad);
+  color: #fff;
+  font-weight: 700;
+  font-size: .72rem;
+  padding: .3rem .7rem;
+  border-radius: 999px;
+}
+.precio { font-weight: 800; font-size: 1.25rem; color: var(--brand-1); letter-spacing: -.02em; }
+.precio small { font-size: .75rem; font-weight: 600; color: var(--ink-soft); }
+.nombre-producto {
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.5em;
+}
+
+/* ===== Página de producto ===== */
+.galeria-principal {
+  background: #fff;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+  padding: 1.2rem;
+}
+.galeria-principal img { max-height: 440px; max-width: 100%; object-fit: contain; }
+.miniatura {
+  width: 68px;
+  height: 68px;
+  object-fit: cover;
+  border-radius: .7rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  transition: .15s;
+}
+.miniatura:hover, .miniatura.activa { border-color: var(--brand-1); }
+.caja-compra {
+  background: #fff;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-soft);
+  padding: 1.6rem;
+  position: sticky;
+  top: 90px;
+}
+.precio-grande {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lista-confianza { list-style: none; padding: 0; margin: 0; }
+.lista-confianza li { display: flex; gap: .6rem; align-items: center; color: var(--ink-soft); font-size: .88rem; padding: .25rem 0; }
+.lista-confianza i { color: #16a34a; }
+
+/* ===== Pasos del checkout ===== */
+.pasos { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
+.paso { display: flex; align-items: center; gap: .45rem; color: var(--ink-soft); font-weight: 600; font-size: .9rem; }
+.paso .num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #e2e8f0;
+  font-size: .85rem;
+  font-weight: 800;
+}
+.paso.activo { color: var(--brand-1); }
+.paso.activo .num { background: var(--grad); color: #fff; }
+.paso-sep { color: #cbd5e1; }
+
+/* ===== Métodos de pago ===== */
+.opcion-pago {
+  border: 2px solid #e2e8f0;
+  border-radius: var(--card-radius);
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  transition: .15s;
+  background: #fff;
+  display: block;
+}
+.opcion-pago:hover { border-color: #c4b5fd; }
+.opcion-pago.seleccionada { border-color: var(--brand-1); box-shadow: 0 0 0 4px rgba(124, 58, 237, .12); }
+.opcion-pago .icono-pago {
+  width: 44px; height: 44px;
+  border-radius: .7rem;
+  background: #f5f3ff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--brand-1);
+}
+
+/* ===== Tarjetas genéricas ===== */
+.card { border: 0; border-radius: var(--card-radius); box-shadow: var(--shadow-soft); }
+.card-header { border-radius: var(--card-radius) var(--card-radius) 0 0 !important; }
+
+/* ===== Footer ===== */
+.footer-tienda {
+  background: #0f172a;
+  color: #cbd5e1;
+  margin-top: 4rem;
+}
+.footer-tienda h6 { color: #fff; font-weight: 700; }
+.footer-tienda a { color: #cbd5e1; text-decoration: none; }
+.footer-tienda a:hover { color: #fff; }
+.sello-pago {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  background: rgba(255, 255, 255, .08);
+  border-radius: .5rem;
+  padding: .3rem .7rem;
+  font-size: .8rem;
+}
+
+/* ===== Botón flotante de WhatsApp ===== */
+.whatsapp-flotante {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 1050;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  box-shadow: 0 8px 22px rgba(37, 211, 102, .45);
+  transition: .2s;
+}
+.whatsapp-flotante:hover { transform: scale(1.08); color: #fff; }
+
+/* ===== Estado del pago ===== */
+.sello-resultado {
+  width: 92px; height: 92px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+  color: #fff;
+}
+.sello-pagado { background: linear-gradient(135deg, #16a34a, #4ade80); box-shadow: 0 10px 30px rgba(22, 163, 74, .35); }
+.sello-pendiente { background: linear-gradient(135deg, #d97706, #fbbf24); box-shadow: 0 10px 30px rgba(217, 119, 6, .35); }
+.sello-fallido { background: linear-gradient(135deg, #dc2626, #f87171); box-shadow: 0 10px 30px rgba(220, 38, 38, .35); }
+
+@media (max-width: 576px) {
+  .hero { padding: 2.2rem 1.1rem; }
+  .hero h1 { font-size: 1.6rem; }
+  .card-producto .marco-img { height: 170px; }
+}

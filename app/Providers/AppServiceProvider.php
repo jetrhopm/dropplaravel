@@ -25,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
         View::composer(['layouts.store', 'store.*', 'layouts.admin', 'admin.*'], function ($view) {
             $view->with('storeName', Setting::value('nombre_tienda', 'Mi Tienda'))
                 ->with('currency', Setting::value('moneda', 'MXN'))
+                ->with('margin', (float) Setting::value('porcentaje_ganancia', '80'))
+                ->with('fixed', (float) Setting::value('costo_fijo', '0'))
                 ->with('cartCount', Cart::count())
                 ->with('whatsappNumber', preg_replace('/\D/', '', Setting::value('whatsapp_numero')))
                 ->with('contactPhone', Setting::value('contacto_telefono'))

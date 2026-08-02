@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductImportController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
@@ -29,6 +30,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
         Route::get('/', DashboardController::class)->name('dashboard');
+        Route::get('/importar', [ProductImportController::class, 'create'])->name('importar.create');
+        Route::post('/importar/vista-previa', [ProductImportController::class, 'preview'])->name('importar.preview');
+        Route::post('/importar', [ProductImportController::class, 'store'])->name('importar.store');
         Route::get('/productos', [ProductController::class, 'index'])->name('productos.index');
         Route::get('/productos/nuevo', [ProductController::class, 'create'])->name('productos.create');
         Route::post('/productos', [ProductController::class, 'store'])->name('productos.store');

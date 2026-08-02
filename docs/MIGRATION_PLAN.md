@@ -24,13 +24,14 @@ Criterio de cierre: rutas sin acceso anónimo, creación de productos y cambio d
 
 ## 3. Importación de productos
 
-Estado: pendiente.
+Estado: terminado.
 
-- Extraer JSON-LD y Open Graph en un servicio aislado.
-- Descargar y validar imágenes mediante `Storage`.
+- Extraer JSON-LD, Open Graph y datos basicos de AliExpress/Temu en un servicio aislado.
+- Descargar y validar imagenes mediante `Storage`.
 - Mostrar vista previa antes de persistir y conservar el enlace original.
+- Bloquear destinos privados o reservados, validar cada redireccion y limitar tamano y tipo de descarga.
 
-Criterio de cierre: respuestas inválidas, URLs bloqueadas e imágenes no permitidas manejadas sin publicar contenido parcial.
+Criterio de cierre: vista previa, guardado e intento de URL privada cubiertos por pruebas de integracion.
 
 ## 4. Pagos y notificaciones
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductImportController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ClipWebhookController;
 use App\Http\Controllers\PaymentReturnController;
 use App\Http\Controllers\StorefrontController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,7 @@ Route::get('/checkout', [CheckoutController::class, 'create'])->name('checkout.c
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 Route::get('/pedido-confirmado', [CheckoutController::class, 'confirmed'])->name('pedido.confirmado');
 Route::get('/pagos/{pedido}/retorno', PaymentReturnController::class)->middleware('signed')->name('pagos.retorno');
+Route::post('/webhooks/clip', ClipWebhookController::class)->name('webhooks.clip');
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('guest')->group(function () {

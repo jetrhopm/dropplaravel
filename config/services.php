@@ -54,4 +54,11 @@ return [
         'sandbox' => env('OPENPAY_SANDBOX', true),
     ],
 
+    'clip' => [
+        'enabled' => env('CLIP_ENABLED', false),
+        'public_key' => env('CLIP_PUBLIC_KEY'),
+        'secret_key' => env('CLIP_SECRET_KEY'),
+        'webhook_token' => env('CLIP_WEBHOOK_TOKEN'),
+    ],
+
 ];

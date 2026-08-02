@@ -47,6 +47,9 @@ SESSION_DRIVER=database
 QUEUE_CONNECTION=database
 FILESYSTEM_DISK=public
 MAIL_MAILER=log
+
+MERCADOPAGO_ENABLED=true
+MERCADOPAGO_ACCESS_TOKEN=APP_USR_TU_TOKEN_PRIVADO
 ```
 
 Continua con la inicializacion, publica solo el directorio correcto y crea el enlace para imagenes:

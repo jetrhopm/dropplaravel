@@ -35,9 +35,10 @@ Criterio de cierre: vista previa, guardado e intento de URL privada cubiertos po
 
 ## 4. Pagos y notificaciones
 
-Estado: pendiente.
+Estado: en curso.
 
-- Separar Mercado Pago, PayPal, Openpay y Clip en adaptadores de pasarela.
+- Mercado Pago Checkout Pro terminado con retorno firmado y verificacion servidor a servidor.
+- Separar PayPal, Openpay y Clip en adaptadores de pasarela.
 - Añadir retorno firmado, verificación servidor a servidor y webhook idempotente de Clip.
 - Encolar notificaciones por correo y generar enlace de WhatsApp para pedidos.
 

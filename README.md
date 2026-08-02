@@ -11,7 +11,7 @@ Migración progresiva del MVP de PHP puro en `jetrhopm/dropp` a Laravel 12. El p
 - Esquema compatible con las tablas de la versión PHP: `usuarios`, `configuracion`, `productos`, `producto_imagenes`, `pedidos` y `pedido_items`.
 - Rutas públicas estables y con nombre: `/`, `/producto/{id}`, `/carrito`, `/checkout`, `/pedido-confirmado`.
 
-Pendiente de portar: las pasarelas Mercado Pago, PayPal, Openpay y Clip.
+Mercado Pago Checkout Pro esta disponible mediante variables de entorno. Pendiente de portar: PayPal, Openpay y Clip.
 
 Después de ejecutar el seeder local, entra en `/admin/login` con `admin@tienda.com` / `admin12345` y cambia la contraseña desde Configuración. No uses esas credenciales en producción.
 

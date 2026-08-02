@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductImportController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\PaymentReturnController;
 use App\Http\Controllers\StorefrontController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,7 @@ Route::delete('/carrito', [CartController::class, 'destroy'])->name('carrito.des
 Route::get('/checkout', [CheckoutController::class, 'create'])->name('checkout.create');
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 Route::get('/pedido-confirmado', [CheckoutController::class, 'confirmed'])->name('pedido.confirmado');
+Route::get('/pagos/{pedido}/retorno', PaymentReturnController::class)->middleware('signed')->name('pagos.retorno');
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('guest')->group(function () {

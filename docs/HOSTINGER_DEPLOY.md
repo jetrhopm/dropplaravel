@@ -59,6 +59,9 @@ php artisan storage:link
 php artisan optimize:clear
 
 mkdir -p "$WEB_ROOT"
+if [ -f "$WEB_ROOT/index.php" ]; then
+  cp -a "$WEB_ROOT" "${WEB_ROOT}.backup.$(date +%Y%m%d_%H%M%S)"
+fi
 cp -a "$APP_HOME/public/." "$WEB_ROOT/"
 rm -rf "$WEB_ROOT/storage"
 ln -s "$APP_HOME/storage/app/public" "$WEB_ROOT/storage"

@@ -47,4 +47,11 @@ return [
         'sandbox' => env('PAYPAL_SANDBOX', true),
     ],
 
+    'openpay' => [
+        'enabled' => env('OPENPAY_ENABLED', false),
+        'merchant_id' => env('OPENPAY_MERCHANT_ID'),
+        'private_key' => env('OPENPAY_PRIVATE_KEY'),
+        'sandbox' => env('OPENPAY_SANDBOX', true),
+    ],
+
 ];

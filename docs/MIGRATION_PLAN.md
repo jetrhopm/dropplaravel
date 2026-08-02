@@ -39,7 +39,8 @@ Estado: en curso.
 
 - Mercado Pago Checkout Pro terminado con retorno firmado y verificacion servidor a servidor.
 - PayPal terminado con OAuth, captura al retorno firmado y clave de idempotencia.
-- Separar Openpay y Clip en adaptadores de pasarela.
+- Openpay terminado con checkout hospedado y retorno firmado.
+- Separar Clip en un adaptador y webhook idempotente.
 - Añadir retorno firmado, verificación servidor a servidor y webhook idempotente de Clip.
 - Encolar notificaciones por correo y generar enlace de WhatsApp para pedidos.
 

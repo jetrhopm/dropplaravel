@@ -7,13 +7,14 @@ use RuntimeException;
 
 class PaymentManager
 {
-    public function __construct(private MercadoPagoGateway $mercadoPago, private PayPalGateway $payPal) {}
+    public function __construct(private MercadoPagoGateway $mercadoPago, private OpenpayGateway $openpay, private PayPalGateway $payPal) {}
 
     public function methods(): array
     {
         return array_filter([
             'mercadopago_checkout' => $this->mercadoPago->isEnabled() ? ['label' => 'Mercado Pago', 'instructions' => 'Tarjetas, OXXO y dinero en cuenta.', 'gateway' => 'mercadopago'] : null,
             'paypal_checkout' => $this->payPal->isEnabled() ? ['label' => 'PayPal', 'instructions' => 'Cuenta PayPal o tarjeta.', 'gateway' => 'paypal'] : null,
+            'openpay_checkout' => $this->openpay->isEnabled() ? ['label' => 'Openpay', 'instructions' => 'Tarjeta de credito o debito.', 'gateway' => 'openpay'] : null,
         ]);
     }
 
@@ -22,6 +23,7 @@ class PaymentManager
         return match ($method) {
             'mercadopago_checkout' => $this->mercadoPago->create($order),
             'paypal_checkout' => $this->payPal->create($order),
+            'openpay_checkout' => $this->openpay->create($order),
             default => throw new RuntimeException('Pasarela de pago no disponible.'),
         };
     }
@@ -31,6 +33,7 @@ class PaymentManager
         return match ($gateway) {
             'mercadopago' => $this->mercadoPago->verify($order, (string) ($parameters['payment_id'] ?? $parameters['collection_id'] ?? '')),
             'paypal' => $this->payPal->verify($order, $parameters),
+            'openpay' => $this->openpay->verify($order, $parameters),
             default => ['status' => 'pendiente', 'reference' => $order->pago_referencia],
         };
     }

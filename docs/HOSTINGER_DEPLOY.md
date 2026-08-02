@@ -55,6 +55,11 @@ PAYPAL_ENABLED=true
 PAYPAL_CLIENT_ID=TU_CLIENT_ID
 PAYPAL_SECRET=TU_SECRET_PRIVADO
 PAYPAL_SANDBOX=false
+
+OPENPAY_ENABLED=true
+OPENPAY_MERCHANT_ID=TU_MERCHANT_ID
+OPENPAY_PRIVATE_KEY=TU_LLAVE_PRIVADA
+OPENPAY_SANDBOX=false
 ```
 
 Continua con la inicializacion, publica solo el directorio correcto y crea el enlace para imagenes:

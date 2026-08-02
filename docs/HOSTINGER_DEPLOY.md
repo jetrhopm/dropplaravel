@@ -50,6 +50,11 @@ MAIL_MAILER=log
 
 MERCADOPAGO_ENABLED=true
 MERCADOPAGO_ACCESS_TOKEN=APP_USR_TU_TOKEN_PRIVADO
+
+PAYPAL_ENABLED=true
+PAYPAL_CLIENT_ID=TU_CLIENT_ID
+PAYPAL_SECRET=TU_SECRET_PRIVADO
+PAYPAL_SANDBOX=false
 ```
 
 Continua con la inicializacion, publica solo el directorio correcto y crea el enlace para imagenes:

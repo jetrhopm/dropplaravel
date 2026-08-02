@@ -38,7 +38,8 @@ Criterio de cierre: vista previa, guardado e intento de URL privada cubiertos po
 Estado: en curso.
 
 - Mercado Pago Checkout Pro terminado con retorno firmado y verificacion servidor a servidor.
-- Separar PayPal, Openpay y Clip en adaptadores de pasarela.
+- PayPal terminado con OAuth, captura al retorno firmado y clave de idempotencia.
+- Separar Openpay y Clip en adaptadores de pasarela.
 - Añadir retorno firmado, verificación servidor a servidor y webhook idempotente de Clip.
 - Encolar notificaciones por correo y generar enlace de WhatsApp para pedidos.
 

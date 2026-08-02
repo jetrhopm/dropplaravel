@@ -40,4 +40,11 @@ return [
         'access_token' => env('MERCADOPAGO_ACCESS_TOKEN'),
     ],
 
+    'paypal' => [
+        'enabled' => env('PAYPAL_ENABLED', false),
+        'client_id' => env('PAYPAL_CLIENT_ID'),
+        'secret' => env('PAYPAL_SECRET'),
+        'sandbox' => env('PAYPAL_SANDBOX', true),
+    ],
+
 ];

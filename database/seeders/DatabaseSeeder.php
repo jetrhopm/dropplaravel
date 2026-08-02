@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -23,5 +24,10 @@ class DatabaseSeeder extends Seeder
         ] as $key => $value) {
             Setting::updateOrCreate(['clave' => $key], ['valor' => $value]);
         }
+
+        User::updateOrCreate(
+            ['email' => 'admin@tienda.com'],
+            ['nombre' => 'Administrador', 'password' => 'admin12345'],
+        );
     }
 }

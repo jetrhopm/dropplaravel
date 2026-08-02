@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer(['layouts.store', 'store.*'], function ($view) {
+        View::composer(['layouts.store', 'store.*', 'layouts.admin', 'admin.*'], function ($view) {
             $view->with('storeName', Setting::value('nombre_tienda', 'Mi Tienda'))
                 ->with('currency', Setting::value('moneda', 'MXN'))
                 ->with('cartCount', Cart::count())

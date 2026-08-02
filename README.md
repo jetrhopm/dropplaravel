@@ -7,10 +7,13 @@ Migración progresiva del MVP de PHP puro en `jetrhopm/dropp` a Laravel 12. El p
 - Catálogo público, búsqueda y página de producto.
 - Carrito basado en sesión y checkout para pagos manuales.
 - Pedidos, productos, imágenes, configuraciones y usuarios modelados con Eloquent.
+- Panel administrativo protegido en `/admin`: acceso, dashboard, productos, pedidos, configuración y cambio de contraseña.
 - Esquema compatible con las tablas de la versión PHP: `usuarios`, `configuracion`, `productos`, `producto_imagenes`, `pedidos` y `pedido_items`.
 - Rutas públicas estables y con nombre: `/`, `/producto/{id}`, `/carrito`, `/checkout`, `/pedido-confirmado`.
 
-Pendiente de portar: panel administrativo, importador por URL y las pasarelas Mercado Pago, PayPal, Openpay y Clip.
+Pendiente de portar: importador por URL y las pasarelas Mercado Pago, PayPal, Openpay y Clip.
+
+Después de ejecutar el seeder local, entra en `/admin/login` con `admin@tienda.com` / `admin12345` y cambia la contraseña desde Configuración. No uses esas credenciales en producción.
 
 ## Desarrollo local
 
@@ -27,3 +30,5 @@ El dominio debe apuntar al directorio `public/`, nunca a la raíz del proyecto. 
 Configura las variables `APP_ENV=production`, `APP_DEBUG=false`, base de datos MySQL y `APP_URL=https://tu-dominio`. Después ejecuta `php artisan migrate --force`, `php artisan db:seed --force`, `php artisan storage:link`, `php artisan config:cache` y `php artisan route:cache` mediante SSH. Si no hay SSH, importa la base de datos desde phpMyAdmin y prepara el enlace de `storage` según las opciones del panel.
 
 Nunca subas `.env`, `storage/logs` ni archivos de credenciales al repositorio.
+
+El plan detallado y los criterios de cierre están en [docs/MIGRATION_PLAN.md](docs/MIGRATION_PLAN.md).
